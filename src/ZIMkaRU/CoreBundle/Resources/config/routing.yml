@@ -1,0 +1,9 @@
+zimkaru_core_homepage:
+    path:     /
+    defaults: { _controller: ZIMkaRUCoreBundle:Index:index }
+
+post_contact:
+    path:     /post_contact
+    defaults: { _controller: ZIMkaRUCoreBundle:Index:addContact }
+    options:
+        expose: true

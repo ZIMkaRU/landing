@@ -1,0 +1,58 @@
+html {
+    position: relative;
+    height: 100%;
+}
+
+body {
+    background-color: #106a7b;
+    height: 100%;
+}
+
+.inline-block {
+    display: inline-block;
+    vertical-align: bottom;
+    float: none;
+    zoom: 1;
+    letter-spacing: 0;
+}
+
+.wrap {
+    height: 100%;
+    width: 100%;
+    display: table;
+}
+
+.error-col {
+    /*padding-top: 150px;*/
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.error-col .status-code {
+    color: #812d39;
+    font-size: 170px;
+    padding-bottom: 90px;
+}
+.description {
+    position: relative;
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+
+.btn {
+    border-radius: 0;
+    transition: all 1s;
+    padding: 20px 80px;
+    background-color: #0c4c84;
+}
+
+.description .shadow {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: #ffffff;
+    opacity: 0.06;
+    z-index: -1;
+}

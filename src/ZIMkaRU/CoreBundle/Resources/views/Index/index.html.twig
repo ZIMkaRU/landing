@@ -1,0 +1,419 @@
+{% extends 'landing/layout.html.twig' %}
+
+{% block seo %}
+{{ parent() }}
+    <meta name="keywords" content="{{ content.keywords }}">
+    <meta name="description" content="{{ content.description }}">
+{% endblock %}
+
+{% block title %}{{ content.title }}{% endblock %}
+
+{% block body %}
+    <!-- Modal -->
+    {% include 'ZIMkaRUCoreBundle:Index:modal.html.twig' %}
+
+    <div class="page-wrapper">
+        <div class="page">
+
+            <!-- START HEADER -->
+            <header>
+                <div class="wrap-container center-block">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="logo col-lg-4 col-md-5 col-xs-12">
+                                <a href="#">
+                                    <img class="img-responsive imgHolder"
+                                         src="{{ content.getWebPath('logoImage')|imageOrHolder(328, 100) }}"
+                                         alt="logo">
+                                </a>
+                            </div>
+                            <div class="address col-lg-8 col-md-7 col-xs-12">
+                                <address class="text-center pull-right">
+                                    <div class="phone">
+                                        <div class="ico_address_phone holderjs" style="
+                                                background-image: url({{ content.getWebPath('contactsPhoneImage')|imageOrHolder(45, 45) }});
+                                                background-position: 0 0;
+                                        "></div>
+                                        <div>{{ content.contactsPhone }}</div>
+                                    </div>
+                                    <div class="mail">
+                                        <div class="ico_address_mail holderjs" style="
+                                                background-image: url({{ content.getWebPath('contactsEmailImage')|imageOrHolder(45, 45) }});
+                                                background-position: 0 0;
+                                        "></div>
+                                        <a href="mailto:#">{{ content.contactsEmail }}</a>
+                                    </div>
+                                </address>
+                            </div>
+                            <div class="col-lg-8 col-xs-12 pull-right">
+                                <div class="row">
+                                    <nav class="navbar navbar-default">
+                                        <div class="container-fluid">
+                                            <!-- Brand and toggle get grouped for better mobile display -->
+                                            <div class="navbar-header">
+                                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                                        data-target="#navbar-collapse-1">
+                                                    <span class="sr-only">Toggle navigation</span>
+                                                    <span class="icon-bar"></span>
+                                                    <span class="icon-bar"></span>
+                                                    <span class="icon-bar"></span>
+                                                </button>
+                                            </div>
+
+                                            <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                                                <ul class="nav navbar-nav navbar-right">
+                                                    <li><a href="#">Главная</a></li>
+                                                    <li><a class="proposition-btn" href="#">{{ content.propositionHeader }}</a></li>
+                                                    <li><a class="features-btn" href="#">{{ content.featuresHeader }}</a></li>
+                                                    <li><a class="numbers-btn" href="#">{{ content.numbersHeader }}</a></li>
+                                                    <li><a class="gallery-btn" href="#">{{ content.galleryHeader }}</a></li>
+                                                    <li><a class="contacts-btn" href="#">{{ content.contactsHeader }}</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- END HEADER -->
+
+            <!-- START feedback-top -->
+            <section class="wrap-container feedback-top holderjs" style="background-image: url({{ content.getWebPath('feedbackImage')|imageOrHolder(1920, 680) }});">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="wrap-form">
+                                <form action="#" method="post" class="center-block js_validate js_contact" role="form">
+                                    <p class="form-header text-center">{{ content.feedbackHeader }}</p>
+
+                                    <p class="form-body text-center">{{ content.feedbackBody }}</p>
+
+                                    <div class="form-group text-center has-feedback">
+                                        <label class="text-uppercase" for="Name">{{ content.feedbackLabelName }} *</label>
+                                        <input type="text" class="form-control js_name" id="Name" tabindex="1"
+                                               name="name" placeholder="{{ content.feedbackLabelName }}" required>
+                                        <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                                        <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+
+                                        <div class="error_text">Введите "{{ content.feedbackLabelName }}"!</div>
+                                    </div>
+                                    <div class="form-group text-center has-feedback">
+                                        <label class="text-uppercase" for="Email">{{ content.feedbackLabelEmail }} *</label>
+                                        <input type="email" class="form-control js_email" id="Email" tabindex="2"
+                                               name="email" placeholder="{{ content.feedbackLabelEmail }}" data-validate="email"
+                                               required>
+                                        <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                                        <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+
+                                        <div class="error_text">Введите «{{ content.feedbackLabelEmail }}»!</div>
+                                    </div>
+                                    <div class="form-group text-center has-feedback">
+                                        <label class="text-uppercase" for="Phone">{{ content.feedbackLabelPhone }}</label>
+                                        <input type="tel" class="form-control validation-val js_phone" id="Phone" tabindex="3"
+                                               name="phone" placeholder="{{ content.feedbackLabelPhone }}"
+                                               data-validate="phone_null">
+                                        <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                                        <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+
+                                        <div class="error_text">Введите «{{ content.feedbackLabelPhone }}»!</div>
+                                    </div>
+                                    <input type="submit" class="btn btn-black btn-block text-uppercase js_submit" tabindex="4"
+                                           value="{{ content.feedbackLabelBtnSub }}">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- END feedback-top -->
+
+            <!-- START proposition -->
+            <section class="wrap-container proposition">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <p class="text-header">{{ content.propositionHeader }}</p>
+
+                            <p class="text-body center-block">
+                                {{ content.propositionBody }}
+                            </p>
+                        </div>
+
+                        {% for propositionItem in content.propositionItems %}
+                            <div class="col-sm-4 proposition-item text-center">
+                                <div class="ico_proposition_1 holderjs" style="
+                                        background-image: url({{ propositionItem.getWebPath('propositionImage')|imageOrHolder(132, 132) }});
+                                        background-position: 0 0;
+                                "></div>
+
+                                <p class="text-header-item">{{ propositionItem.header }}</p>
+
+                                <p class="text-body center-block">
+                                    {{ propositionItem.body }}
+                                </p>
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </section>
+            <!-- END proposition -->
+
+            <!-- START features -->
+            <section class="wrap-container features holderjs" style="background-image: url({{ content.getWebPath('featuresImage')|imageOrHolder(1920, 587) }});">
+
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <p class="text-header">{{ content.featuresHeader }}</p>
+                        </div>
+                    </div>
+                    <div class="row wrap-features-item">
+
+                        {% for featuresItem in content.featuresItems %}
+                            <div class="col-sm-6 features-item media">
+                                <div class="wrap-icon pull-left">
+                                    <div class="ico_features_1 hvr-grow holderjs" style="
+                                            background-image: url({{ featuresItem.getWebPath('featuresImage')|imageOrHolder(61, 73) }});
+                                            background-position: 0 0;
+                                    "></div>
+                                </div>
+                                <div class="features-body media-body">
+                                    <p class="text-header-item">{{ featuresItem.header }}</p>
+                                    <hr class="separator">
+                                    <p class="text-body">
+                                        {{ featuresItem.body }}
+                                    </p>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <button type="submit"
+                                    class="feedback-btn btn btn-yellow text-uppercase center-block" tabindex="5">{{ content.featuresLabelBtnSub }}</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- END features -->
+
+            <!-- START portfolio -->
+            <section class="portfolio">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <p class="text-header">{{ content.portfolioHeader }}</p>
+                        </div>
+                        <div class="col-xs-12">
+                            <p class="text-body center-block">{{ content.portfolioBody }}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        {% for portfolioItem in content.portfolioItems %}
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 portfolio-item portfolio-item_js">
+                                <img class="img-responsive center-block imgHolder"
+                                     src="{{ portfolioItem.getWebPath('portfolioImage')|imageOrHolder(480, 354) }}"
+                                     alt="portfolio">
+
+                                <div class="label-portfolio">
+                                    <div class="label-header">{{ portfolioItem.label }}</div>
+                                    <div class="label-body">
+                                        <div class="wrap-label-body">
+                                            <p class="label-body-text-header">{{ portfolioItem.header }}</p>
+
+                                            <p class="label-body-text center-block">
+                                                {{ portfolioItem.body }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="cont-label-body"></div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+            <!-- END portfolio -->
+
+            <!-- START numbers -->
+            <section class="wrap-container numbers numbers_js">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <p class="text-header">{{ content.numbersHeader }}</p>
+                        </div>
+                    </div>
+                    <div class="row wrap-numbers-row">
+                        <div class="col-xs-12 center-block">
+                            <div class="row wrap-numbers-item wrap-numbers-item_js">
+                                {% for numbersItem in content.numbersItems %}
+                                    <div class="col-md-4 col-sm-6 col-xs-12 numbers-item numbers-item_js">
+                                        <p class="text-header"><span class="number_js">{{ numbersItem.number }}</span>
+                                            <small>{{ numbersItem.postNumbText }}</small>
+                                        </p>
+
+                                        <p class="text-body center-block">
+                                            {{ numbersItem.body }}
+                                        </p>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- END numbers -->
+
+            <!-- START gallery -->
+            <section class="wrap-container gallery">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <p class="text-header">{{ content.galleryHeader }}</p>
+                        </div>
+                    </div>
+                    <div class="row wrap-gallery-slider">
+                        <div class="col-xs-12">
+                            <div class="slider-for">
+                                {% for image in content.gallery %}
+                                    <div>
+                                        <img class="imgHolder img-responsive center-block" src="{{ content.getWebPath(image, true)|imageOrHolder(1250, 700) }}"
+                                             alt="gallery image">
+                                    </div>
+                                {% endfor %}
+                            </div>
+                            <div class="wrap-text-slider">
+                                <div class="background-text"></div>
+                                <div class="row-text">
+                                    <div class="text-slider">
+                                        {{ content.galleryLabel }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slider-nav">
+                                {% for image in content.gallery %}
+                                    <div>
+                                        {#<img class="img-responsive" src="{{ content.getWebPath(image, true) }}"#}
+                                             {#alt="gallery image">#}
+                                        <img class="imgHolder img-responsive" src="{{ content.getWebPath(image, true)|imageOrHolder(600, 450) }}"
+                                             alt="gallery image">
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- END gallery -->
+
+            <!-- START contacts -->
+            <section class="contacts">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-12 center-block wrap-contacts">
+                            <p class="text-header">{{ content.contactsHeader }}</p>
+
+                            <div class="address">
+                                <address class="text-center">
+                                    <div class="phone">
+                                        <div class="ico_address_phone holderjs" style="
+                                                background-image: url({{ content.getWebPath('contactsPhoneImage')|imageOrHolder(45, 45) }});
+                                                background-position: 0 0;
+                                        "></div>
+                                        <div>{{ content.contactsPhone }}</div>
+                                    </div>
+                                    <div class="mail">
+                                        <div class="ico_address_mail holderjs" style="
+                                                background-image: url({{ content.getWebPath('contactsEmailImage')|imageOrHolder(45, 45) }});
+                                                background-position: 0 0;
+                                        "></div>
+                                        <a href="mailto:#">{{ content.contactsEmail }}</a>
+                                    </div>
+                                </address>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- END contacts -->
+        </div>
+
+        <!-- START FOOTER -->
+        <footer class="footer">
+            <section class="feedback-top feedback-bottom">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="wrap-form">
+                                <form action="#" method="post" class="center-block js_validate js_contact" role="form">
+                                    <p class="form-header text-center">{{ content.feedbackHeader }}</p>
+
+                                    <p class="form-body text-center">{{ content.feedbackBody }}</p>
+
+                                    <div class="form-group text-center has-feedback">
+                                        <label class="text-uppercase" for="NameBottom">{{ content.feedbackLabelName }} *</label>
+                                        <input type="text" class="form-control js_name" id="NameBottom" tabindex="6"
+                                               name="name" placeholder="{{ content.feedbackLabelName }}" required>
+                                        <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                                        <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+
+                                        <div class="error_text">Введите {{ content.feedbackLabelName }}"!</div>
+                                    </div>
+                                    <div class="form-group text-center has-feedback">
+                                        <label class="text-uppercase" for="EmailBottom">{{ content.feedbackLabelEmail }} *</label>
+                                        <input type="email" class="form-control js_email" id="EmailBottom" tabindex="7"
+                                               name="email" placeholder="{{ content.feedbackLabelEmail }}" data-validate="email" required>
+                                        <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                                        <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+
+                                        <div class="error_text">Введите "{{ content.feedbackLabelEmail }}"!</div>
+                                    </div>
+                                    <div class="form-group text-center has-feedback">
+                                        <label class="text-uppercase" for="PhoneBottom">{{ content.feedbackLabelPhone }}</label>
+                                        <input type="tel" class="form-control validation-val js_phone" id="PhoneBottom"
+                                               tabindex="8"
+                                               name="phone" placeholder="{{ content.feedbackLabelPhone }}" data-validate="phone_null">
+                                        <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                                        <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+
+                                        <div class="error_text">Введите "{{ content.feedbackLabelPhone }}"!</div>
+                                    </div>
+                                    <input type="submit" class="btn btn-black btn-block text-uppercase js_submit"
+                                           tabindex="9"
+                                           value="{{ content.feedbackLabelBtnSub }}">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bottom-footer wrap-container">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6 col-xs-12 text-left">
+                            <div class="wrap">
+                                <p class="text-muted">
+                                    {{ content.footerLabel }}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xs-12 text-right">
+                            <div class="wrap">
+                                <p class="text-muted">
+                                    Поддержка и разработка сайта: <a href="mailto:#">VSVoronkov@gmail.com</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </footer>
+    </div>
+{% endblock %}

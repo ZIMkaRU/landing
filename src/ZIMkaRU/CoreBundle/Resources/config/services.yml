@@ -1,0 +1,17 @@
+services:
+    zimkaru_core.subscriber.image:
+        class: ZIMkaRU\CoreBundle\Service\ImageSubscriber
+        tags:
+            - {name: doctrine.event_subscriber }
+        arguments: ["%comur_image.cropped_image_dir%", "%comur_image.thumbs_dir%", "@service_container", "%comur_image.web_dirname%", "%comur_image.gallery_dir%"]
+
+#    zimkaru_core.example:
+#        class: ZIMkaRU\CoreBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]
+
+    zimkaru_core.twig_extension.image_thumb_holder:
+        class:  ZIMkaRU\CoreBundle\Twig\HolderJSExtension
+        public: false
+        arguments: ["@comur.twig.thumb_extension"]
+        tags:
+            - { name: twig.extension }

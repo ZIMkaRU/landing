@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}An Error Occurred: {{ status_text }}{% endblock %}
+
+{% block favicon %}{{ asset('public/assets/img/favicon.ico') }}{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/zimkarucore/css/twig_error_page/bootstrap.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('bundles/zimkarucore/css/twig_error_page/app.css') }}"/>
+{% endblock %}
+
+{% block body %}
+    <div class="wrap">
+        <div class="error-col container-fluid">
+            <div class="row">
+                <div class="center-block text-center">
+                    <h1>{{ status_text }}</h1>
+                    <div class="inline-block">
+                        <img alt="error" src="{{ asset('bundles/zimkarucore/images/brian_griffin.png') }}">
+                    </div>
+                    <div class="inline-block">
+                        <div class="status-code">{{ status_code }}</div>
+
+                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                            {# ... #}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="row description">
+                <div class="shadow"></div>
+                <div class="content center-block text-center">
+                    <a class="btn btn-lg btn-primary" href="{{ path('zimkaru_core_homepage') }}">На Главную</a>.
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

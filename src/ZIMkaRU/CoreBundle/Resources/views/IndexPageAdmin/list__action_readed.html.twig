@@ -1,0 +1,3 @@
+{% if not object.readed %}
+<a class="btn btn-sm btn-primary" href="{{ admin.generateObjectUrl('readed', object) }}">Активировать</a>
+{% endif %}

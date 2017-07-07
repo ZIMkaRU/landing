@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    {% block seo %}{% endblock %}
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block head_othet %}{% endblock %}
+    {% block stylesheets %}{% endblock %}
+    <link rel="icon" type="image/x-icon" href="{% block favicon %}{{ asset('favicon.ico') }}{% endblock %}"/>
+</head>
+
+<body>
+{% block body %}{% endblock %}
+{% block javascripts %}
+    {% if app.environment == "dev" %}
+        <script src="{{ asset('webpack-dev-server.js') }}"></script>
+    {% endif %}
+{% endblock %}
+</body>
+</html>

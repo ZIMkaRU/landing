@@ -1,0 +1,19 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/book/service_container.html
+parameters:
+#    parameter_name: value
+
+services:
+#    service_name:
+#        class: AppBundle\Directory\ClassName
+#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+
+    app.monolog_logger:
+        class: Symfony\Bridge\Monolog\Logger # or YourApp\YourBundle\Logger\ElasticaLogger
+        tags:
+            - { name: monolog.logger, channel: elastica }
+
+#    app.monolog_web_processor:
+#        class: Monolog\Processor\WebProcessor
+#        tags:
+#            - { name: monolog.processor, channel: elastica }

@@ -1,0 +1,72 @@
+services:
+    app.menu_listener:
+        class: ZIMkaRU\CoreBundle\EventListener\MenuBuilderListener
+        tags:
+            - { name: kernel.event_listener, event: sonata.admin.event.configure.menu.sidebar, method: addMenuItems }
+
+    app.admin.contact:
+        class: ZIMkaRU\CoreBundle\Admin\ContactAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Управление контактами", label: "Контакты" }
+        arguments:
+            - ~
+            - ZIMkaRU\CoreBundle\Entity\Contact
+            - ZIMkaRUCoreBundle:ContactAdmin
+        calls:
+            - [ setTranslationDomain, [ZIMkaRUCoreBundle]]
+
+    app.admin.index_page:
+        class: ZIMkaRU\CoreBundle\Admin\IndexPageAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Главная", label: "Управление контентом" }
+        arguments:
+            - ~
+            - ZIMkaRU\CoreBundle\Entity\IndexPage
+            - ZIMkaRUCoreBundle:IndexPageAdmin
+        calls:
+            - [ setTranslationDomain, [ZIMkaRUCoreBundle]]
+
+    sonata.admin.proposition_item:
+        class: ZIMkaRU\CoreBundle\Admin\PropositionItemAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Главная", label: "Предложения" }
+        arguments:
+            - ~
+            - ZIMkaRU\CoreBundle\Entity\PropositionItem
+            - ZIMkaRUCoreBundle:PropositionItemAdmin
+        calls:
+            - [ setTranslationDomain, [ZIMkaRUCoreBundle]]
+
+    sonata.admin.features_item:
+        class: ZIMkaRU\CoreBundle\Admin\FeaturesItemAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Главная", label: "Особенности" }
+        arguments:
+            - ~
+            - ZIMkaRU\CoreBundle\Entity\FeaturesItem
+            - ZIMkaRUCoreBundle:FeaturesItemAdmin
+        calls:
+            - [ setTranslationDomain, [ZIMkaRUCoreBundle]]
+
+    sonata.admin.portfolio_item:
+        class: ZIMkaRU\CoreBundle\Admin\PortfolioItemAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Главная", label: "Портфолио" }
+        arguments:
+            - ~
+            - ZIMkaRU\CoreBundle\Entity\PortfolioItem
+            - ZIMkaRUCoreBundle:PortfolioItemAdmin
+        calls:
+            - [ setTranslationDomain, [ZIMkaRUCoreBundle]]
+
+    sonata.admin.numbers_item:
+        class: ZIMkaRU\CoreBundle\Admin\NumbersItemAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Главная", label: "Мы в цифрах" }
+        arguments:
+            - ~
+            - ZIMkaRU\CoreBundle\Entity\NumbersItem
+            - ZIMkaRUCoreBundle:NumbersItemAdmin
+        calls:
+            - [ setTranslationDomain, [ZIMkaRUCoreBundle]]
+

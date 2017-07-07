@@ -1,0 +1,4 @@
+{% extends 'SonataAdminBundle:CRUD:base_show_field.html.twig' %}
+{% block field %}
+    <img class="center-block img-thumbnail img-responsive" src="{{ value ? object.getWebPath(field_description.name)|thumb(300, 500) : asset('public/assets/img/smile.png') }}" alt="thumb">
+{% endblock %}

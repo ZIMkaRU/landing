@@ -1,0 +1,15 @@
+{
+  "name": "landing",
+  "description": "",
+  "main": "webpack.config.js",
+  "authors": [
+    "ZIMkaRU"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "dependencies": {
+    "jquery": "2.*"
+  }
+}
